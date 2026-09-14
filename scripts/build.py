@@ -34,13 +34,13 @@ def validate(issue):
     return urls
 
 def title(issue):
-    return 'WP 台灣週報 · 示範刊' if issue.get('demo') else f"WP 台灣週報 · 第 {issue['number']} 期"
+    return '台灣 WordPress 實務誌 · 示範刊' if issue.get('demo') else f"台灣 WordPress 實務誌 · 第 {issue['number']} 期"
 
 def page(heading, description, body, prefix='', right=''):
     icon = quote('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#21667b"/><text x="16" y="23" text-anchor="middle" fill="#fffefa" font-family="serif" font-size="23">W</text></svg>')
     return f'''<!doctype html>
 <html lang="zh-Hant-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(heading)}</title><meta name="description" content="{e(description)}"><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,{icon}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&amp;family=Noto+Serif+TC:wght@600;700&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="{prefix}style.css"></head>
-<body><a class="skip" href="#main">跳至主要內容</a><header class="site-header"><div class="wrap header-inner"><div><a class="brand" href="{prefix}index.html">《WP 台灣週報》</a><div class="tagline">獨立整理 · WordPress 台灣視角</div></div><nav class="header-links" aria-label="網站導覽">{right}</nav></div></header><main id="main" class="wrap site-main">{body}</main><footer class="wrap site-footer">WP 台灣週報 · 每週一整理 · 原文著作權屬各來源作者。本站非 WordPress 官方刊物。</footer></body></html>'''
+<body><a class="skip" href="#main">跳至主要內容</a><header class="site-header"><div class="wrap header-inner"><div><a class="brand" href="{prefix}index.html">台灣 WordPress 實務誌</a><div class="tagline">每週精選 · 站長與開發者情報</div></div><nav class="header-links" aria-label="網站導覽">{right}</nav></div></header><main id="main" class="wrap site-main">{body}</main><footer class="wrap site-footer">台灣 WordPress 實務誌 · 每週更新 · 內容經獨立整理，原文著作權屬各來源作者。</footer></body></html>'''
 
 def build():
     all_issues = [json.loads(p.read_text()) for p in sorted((ROOT/'content/issues').glob('*.json'))]
@@ -81,9 +81,9 @@ def build():
         body = hero + f'<div class="reading-layout"><aside class="panel toc"><nav aria-label="本期目錄"><h2>本期目錄</h2><ol>{"".join(toc)}</ol></nav></aside><div class="sections">{"".join(sections)}</div></div><div class="bottom-nav"><a href="../index.html">← 返回週報目錄</a></div>'
         right = f'<a class="pill" href="../index.html">目錄</a><span class="pill">{label} · {issue["date"]}</span>'
         (OUT/'issues'/f'{issue["slug"]}.html').write_text(page(name,issue['summary'],body,'../',right),encoding='utf-8')
-    desc = '每週一手來源整理：Core、WooCommerce、台灣站務、社群與在地工作室。點任一期即可閱讀全文。'
+    desc = '聚焦台灣網站經營現場，彙整外掛更新、電商技術、資安提醒與本地團隊觀點；從目錄選擇期數查看完整內容。'
     body = f'<section class="panel intro"><div class="eyebrow">ARCHIVE</div><h1>目錄</h1><p class="description">{desc}</p></section><div class="archive-list">{"".join(cards)}</div>'
-    (OUT/'index.html').write_text(page('WP 台灣週報 · 目錄',desc,body,right=f'<span class="pill">目錄 · 共 {len(real)} 期</span>'),encoding='utf-8')
+    (OUT/'index.html').write_text(page('台灣 WordPress 實務誌 · 目錄',desc,body,right=f'<span class="pill">目錄 · 共 {len(real)} 期</span>'),encoding='utf-8')
     (OUT/'.nojekyll').touch()
     (OUT/'published.json').write_text(json.dumps(registry,ensure_ascii=False,indent=2),encoding='utf-8')
     print(f'Built archive and {len(issues)} issue pages; {len(real)} published issues.')
