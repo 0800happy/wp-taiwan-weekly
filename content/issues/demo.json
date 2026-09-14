@@ -1,0 +1,96 @@
+{
+  "slug": "demo",
+  "number": 0,
+  "date": "2026-09-14",
+  "demo": true,
+  "summary": "從台灣站長的日常出發：關注 WordPress 官方動態、WooCommerce 電商實務，以及在地開發者與工作室的經驗分享。本期為版型示範與來源導覽，不是當週新聞。",
+  "sections": [
+    {
+      "id": "highlights",
+      "title": "本週熱點",
+      "items": [
+        {
+          "title": "WordPress 官方與台灣社群資訊",
+          "paragraphs": [
+            "週報將整理與台灣站長有關的核心更新、編輯器功能與社群消息，每則附上可查證的原始連結。正式版、測試版與提案會分別標示，讓讀者判斷是否需要採取行動。",
+            "這張卡片展示週報的摘要長度與閱讀版型；正式出刊時，會以當週查證過的消息替換。"
+          ],
+          "links": [
+            {
+              "label": "台灣社群網站",
+              "url": "https://tw.wordpress.org/"
+            }
+          ]
+        },
+        {
+          "title": "從一則消息到一個獨立閱讀區塊",
+          "paragraphs": [
+            "同一個分類中，每則資訊保有自己的標題、摘要與來源按鈕，卡片之間以留白區隔。讀者可以快速掃描標題，再挑選有興趣的消息深入閱讀。",
+            "這是第二張示範卡片，用來呈現多則消息並列時的層次；正式內容會在首次出刊時替換。"
+          ],
+          "links": [
+            {
+              "label": "WordPress 台灣社群",
+              "url": "https://tw.wordpress.org/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "commerce",
+      "title": "WooCommerce／電商",
+      "items": [
+        {
+          "title": "從官方更新，回到商店的實際使用情境",
+          "paragraphs": [
+            "電商單元聚焦結帳流程、金流物流、外掛相容性與維護資訊。官方技術消息會搭配台灣商店的使用情境整理，保留原文入口，方便開發者深入閱讀。"
+          ],
+          "links": [
+            {
+              "label": "WooCommerce 開發者部落格",
+              "url": "https://developer.woocommerce.com/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "local",
+      "title": "在地工作室部落格",
+      "items": [
+        {
+          "title": "WP 開發日常：台灣金物流與客製開發",
+          "paragraphs": [
+            "由賴俊吾 Oberon Lai 經營的 WP 開發日常，涵蓋 WordPress 客製開發、WooCommerce 與接案實務。網站列有區塊結帳、發票欄位與超商取貨等文章，適合作為在地技術文章的追蹤來源。",
+            "正式週報會連至選中的單篇文章，並標明日期；本示範卡提供來源首頁，方便先認識作者。"
+          ],
+          "links": [
+            {
+              "label": "WP 開發日常",
+              "url": "https://oberonlai.blog/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "title": "社群與活動",
+      "items": [
+        {
+          "title": "保留在地聲音，也保留資訊的時間脈絡",
+          "paragraphs": [
+            "社群單元將收錄有公開來源的台灣活動與討論。報名日期、活動時間與舉辦方式都要核對原始頁面；無法讀取的私人社團內容不會被寫成已查證的消息。"
+          ],
+          "links": [
+            {
+              "label": "台灣 WordPress 社群",
+              "url": "https://tw.wordpress.org/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

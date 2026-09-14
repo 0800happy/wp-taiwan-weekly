@@ -1,0 +1,14 @@
+{
+  "note": "這是追蹤入口，不是已查證本週新聞；每次須讀取單篇原文並核對日期。",
+  "taiwan": [
+    {"name":"WordPress 台灣社群","url":"https://tw.wordpress.org/"},
+    {"name":"WP 開發日常／Oberon Lai","url":"https://oberonlai.blog/"},
+    {"name":"鵠崙設計","url":"https://www.design-hu.com/"},
+    {"name":"金城事務所","url":"https://iseeu.tw/"}
+  ],
+  "official": [
+    {"name":"WordPress News","url":"https://wordpress.org/news/"},
+    {"name":"Make WordPress Core","url":"https://make.wordpress.org/core/"},
+    {"name":"WooCommerce Developer Blog","url":"https://developer.woocommerce.com/"}
+  ]
+}
