@@ -1,0 +1,102 @@
+{
+  "slug": "2026-09-14",
+  "number": 1,
+  "date": "2026-09-14",
+  "demo": false,
+  "summary": "本期查核 2026 年 9 月 8 日至 14 日的公開資訊，聚焦 WordPress 7.1.1 候選版本、Core 開發工具鏈，以及 WooCommerce 訂閱功能與 PHP 版本規劃。已檢查 WordPress 台灣社群、WP 開發日常、鵠崙設計與 iSeeU 等台灣來源，但未找到同時落在本期區間、可由單篇公開原文核對精確日期的新文章；因此不以舊文充數，另列一篇近期在地工作室文章作延伸閱讀。",
+  "sections": [
+    {
+      "id": "highlights",
+      "title": "本週熱點",
+      "items": [
+        {
+          "title": "WordPress 7.1.1 RC1 開放測試，正式版暫定 9 月 17 日",
+          "paragraphs": [
+            "WordPress 7.1.1 的第一個候選版本已開放測試，這次定位為修錯型維護版，涵蓋後台、媒體、多站網路刪除使用者、空網站 Sitemap 404、行動版版面與編輯器媒體等問題。官方表示正式版暫定於 9 月 17 日推出，但時程仍可能調整。",
+            "台灣站長不應把候選版本直接用在正式站；較合適的做法是在備份完善的測試環境，以 WordPress Beta Tester 或 WP-CLI 驗證主題、外掛與既有內容流程。維護多站網路或高度依賴媒體功能的團隊，可優先重現既有問題並在正式更新前完成相容性檢查。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-09-10",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/09/10/wordpress-7-1-1-rc1-is-now-available/"
+            }
+          ]
+        },
+        {
+          "title": "WordPress Core 開發環境升級至 Node.js 24 與 npm 11",
+          "paragraphs": [
+            "自 9 月 8 日起，WordPress 主幹開發環境要求 Node.js 24.x，最低 24.18.0，以及 npm 11.x，最低 11.16.0；這也適用於 Gutenberg 的 wp/7.1 分支與 wordpress-develop 的 7.1 分支。較舊維護分支仍維持 Node.js 20.10.0 與 npm 10.2.3 的下限。官方列出的升級效益包括隔離相依套件、OIDC 可信任發布、套件最短存續時間保護與原生 TypeScript 支援。",
+            "參與 Core、Gutenberg 或維護相關自動化的台灣開發者，應先依儲存庫的版本檔執行 nvm install、nvm use，再用 npm ci 重建相依套件；既有拉取請求也要更新分支。一般 WordPress 網站的前台執行環境不會因這項開發工具要求而直接改變。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-09-09",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/09/09/updating-wordpress-to-use-node-js-24-and-npm-11/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "commerce",
+      "title": "WooCommerce／電商",
+      "items": [
+        {
+          "title": "WooCommerce Subscriptions 9.2.0 調整按比例計費、贈送與權限檢查",
+          "paragraphs": [
+            "WooCommerce Subscriptions 9.2.0 更新設定頁介面與行為，讓實體商品也能採用新的按比例計費數值，並修正手動續訂設定邏輯。安全與權限方面，移除訂閱項目會檢查使用者能力並使用操作專屬 nonce；贈送功能則由全站開關改為各商品設定，既有設定會進行遷移。",
+            "台灣訂閱型商店升級前應在測試站檢查實體商品的換方案金額、手動續訂與既有贈送商品。若客製頁面使用方案選擇器，還要確認新版前端腳本已載入；串接設定 REST 欄位的自製外掛也應改用新的註冊方式，避免日後移除舊類別與篩選器時中斷。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-09-08",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/09/08/wc-subscriptions-9-2-0/"
+            }
+          ]
+        },
+        {
+          "title": "WooCommerce 提議 11.5 起將最低 PHP 版本提高到 8.1",
+          "paragraphs": [
+            "WooCommerce 團隊提出版本支援規劃：預計在 2027 年 1 月推出的 WooCommerce 11.5，最低 PHP 版本可能由 7.4 提高到 8.1，屆時後續版本將不再支援 PHP 7.4 與 8.0。這仍是提案而非已定案政策；若主機仍使用舊版 PHP，系統不會自動升級到不相容的 WooCommerce，而會停留在可用版本。",
+            "台灣商店可現在就盤點主機、金流、物流、發票與客製外掛對 PHP 8.1 以上的相容性，並先在 staging 完整測試結帳、訂單與排程工作。不要只升級 PHP 後直接觀察正式站，因為留在舊 WooCommerce 雖能暫時運作，也會逐漸失去後續修正與功能更新。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-09-08",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/09/08/from-php-7-4-to-8-1/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "local",
+      "title": "在地工作室延伸閱讀",
+      "items": [
+        {
+          "title": "鵠崙設計整理 Google 商家檔案的本地 SEO 操作",
+          "paragraphs": [
+            "鵠崙設計的文章整理 Google 商家檔案優化，包括商家名稱、地址、電話、營業時間與分類等基本資料，並延伸到圖片管理、評論回覆、動態貼文、問答與成效追蹤。對以 WordPress 作為官網的台灣在地商家而言，可將商家檔案的網站連結、品牌資訊與站內聯絡內容一併核對，降低搜尋結果與官網資料不一致的情況。",
+            "這篇文章發布於 9 月 3 日，不在本期 9 月 8 日至 14 日的主要查核區間內。由於本週已嘗試多個台灣來源，仍未找到可核對精確日期的新文，因此僅列為近期延伸閱讀，不視為本週新聞；文中的成效數據與操作建議屬工作室觀點，實作時仍應配合自身產業與 Google 最新規範評估。"
+          ],
+          "source_name": "鵠崙設計",
+          "source_date": "2026-09-03",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://www.design-hu.com/web-news/google-my-business-local-seo-guide.html"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
