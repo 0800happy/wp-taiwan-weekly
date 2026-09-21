@@ -1,0 +1,132 @@
+{
+  "slug": "2026-09-21",
+  "number": 2,
+  "date": "2026-09-21",
+  "demo": false,
+  "summary": "本期查核 2026 年 9 月 15 日至 21 日的公開資訊，重點包括 WordPress 7.1.1 維護與安全更新、WordPress 7.2 的編輯器與預設佈景主題測試，以及 WooCommerce 11.1.1、Purple 區塊主題與實驗性 AI 商務工具。已檢查 WordPress 台灣社群、WP 開發日常、鵠崙設計與金城事務所，未找到落在本期區間且能由單篇原文核對精確日期的新文章，因此本期不以舊文充數，台灣來源占比不足的情況在此如實說明。",
+  "sections": [
+    {
+      "id": "security",
+      "title": "資安",
+      "items": [
+        {
+          "title": "WordPress 7.1.1 修補 11 項安全問題，官方建議立即更新",
+          "paragraphs": [
+            "WordPress 7.1.1 於 9 月 17 日發布，包含 Core 的 17 項錯誤修正、區塊編輯器的 19 項修正，以及 11 項安全修補。安全項目涵蓋 wpautop() 儲存型跨站指令碼、HTML API 註解逸出、自訂頁首主題的儲存型跨站指令碼、特製網址觸發未啟用佈景主題安裝與預覽、REST 範本控制器的已驗證路徑穿越，以及文章覆寫、私密文章標題與草稿網址代稱洩漏等權限問題。官方原文未公布 CVE 編號，不能自行補寫。",
+            "台灣站長應把正式站更新至 7.1.1，更新前先備份資料庫與檔案，再檢查登入、留言、媒體、文章編輯與客製 REST API。舊分支的必要安全回補仍在進行，但官方明確表示只有最新版受到積極支援，因此不宜把回補當成長期停留舊版的理由。"
+          ],
+          "source_name": "WordPress News",
+          "source_date": "2026-09-17",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://wordpress.org/news/2026/09/wordpress-7-1-1-maintenance-and-security-release/"
+            }
+          ]
+        },
+        {
+          "title": "WooCommerce 11.1.1 強化 API、驗證與工作階段安全",
+          "paragraphs": [
+            "WooCommerce 11.1.1 於 9 月 18 日發布，改善 REST API 憑證的適用範圍、舊版 options API 與行動應用登入的權限檢查，以及訪客工作階段驗證；同時修正 Mini-Cart 區塊被可見性規則隱藏時，購物車內容可能在頁尾下方以未套樣式形式出現的問題。這是安全更新，不需要資料庫升級；官方未在文章中列出 CVE 編號。",
+            "使用 WooCommerce 11.1 的台灣商店應先在測試站升級到 11.1.1，重點驗證 REST API 串接、行動管理應用、訪客購物車與 Mini-Cart 顯示，再安排正式站更新。官方作者在回覆中說明安全問題風險較低且需要高權限管理員，但電商站仍不宜因此延後修補。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-09-18",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/09/18/woocommerce-11-1-1/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highlights",
+      "title": "本週熱點",
+      "items": [
+        {
+          "title": "WordPress 即時協作改採伺服器感知方向",
+          "paragraphs": [
+            "Core 團隊提出把即時協作更新送回 WordPress 伺服器處理，讓伺服器能記錄作者、檢查權限、合併變更並處理衝突。原本只在瀏覽器端交換 CRDT 更新的實驗，難以處理權限歸屬、REST API 或 WP-CLI 同時改稿，以及斷線後覆寫其他編輯等風險；目前團隊正以 Yjs 伺服器、三方合併與意圖日誌三種同步引擎進行早期探索，尚未準備納入 Core。",
+            "台灣媒體、多作者內容站與有排程匯入流程的團隊可先關注，但不應把探索性外掛部署到正式站。這項方向會影響未來協作功能的主機負載、權限模型與客製整合方式，使用低資源共享主機或大量 REST 自動化的站點尤其要留意後續效能測試結果。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-09-18",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/09/18/moving-to-a-server-aware-approach-for-collaboration/"
+            }
+          ]
+        },
+        {
+          "title": "WordPress 7.2 測試新版文章設定側欄 DataForm",
+          "paragraphs": [
+            "WordPress 正測試以 DataForm 重建文章與頁面的設定側欄，並讓同一份表單定義服務於網站編輯器的快速編輯，目標是在 7.2 穩定。測試需使用 Gutenberg 24.0 以上；Gutenberg 24.0 可搭配 WordPress 6.9，trunk 則需要 WordPress 7.0 以上。現有多個外掛插槽預期維持，但已淘汰的 PluginPostExcerpt 未移植，editor.PostFeaturedImage 與 editor.MediaUpload 也仍有缺口。",
+            "開發 SEO、社群分享、精選圖片或自訂文章欄位外掛的台灣團隊，應在測試環境逐一核對不同文章類型與使用者角色。正式站站長暫時不必啟用實驗功能，但若外掛會改寫文章設定面板，現在回報相容性問題比 7.2 發布後再修正更安全。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-09-17",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/09/17/call-for-testing-dataform-editor-inspector/"
+            }
+          ]
+        },
+        {
+          "title": "Ipsum 成為 WordPress 7.2 新預設佈景主題提案",
+          "paragraphs": [
+            "Core 團隊提出以 Ipsum 作為 WordPress 7.2 隨附的預設佈景主題。它定位為簡潔的部落格空白畫布，內含可變化的字體與樣式組合，並宣稱所有組合符合 WCAG AA；同時，預設主題命名將不再固定使用年份。現階段主要完成設計，開發審查仍待進行，因此仍屬測試提案而非最終成品。",
+            "台灣佈景主題開發者可下載測試無障礙、範本與全站編輯體驗，但不應預設目前結構會原樣進入 7.2。經營既有網站者升級核心時也不會被強制切換主題；真正需要注意的是新站建置流程與日後教學素材可能改以 Ipsum 為預設起點。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-09-16",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/09/16/introducing-ipsum-the-new-default-theme/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "commerce",
+      "title": "WooCommerce／電商",
+      "items": [
+        {
+          "title": "Purple：WooCommerce 首款官方區塊主題進入 Beta 測試",
+          "paragraphs": [
+            "WooCommerce 重新開放 Purple Beta 測試，定位為官方開源的商店起始主題，提供多數支援區塊的 WooCommerce 頁面範本、十組色盤、十組字型搭配，以及商品網格、篩選、集合、行動呼籲和商品詳情等電商版面配置。它目前只能從 GitHub 取得，尚未進入 WordPress 佈景主題目錄或 WooCommerce Marketplace，因此不會自動更新。",
+            "台灣商店與接案團隊應只在 staging 或本機測試，並用最新版 WordPress 與 WooCommerce 檢查商店、商品、購物車、結帳、會員、搜尋、不同裝置篩選器，以及常用金流物流外掛。Purple 仍是 Beta，範本、版面配置與樣式可能改變，不適合直接作為無維護計畫的正式站主題。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-09-15",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/09/15/purple/"
+            }
+          ]
+        },
+        {
+          "title": "WooCommerce 公開 Claude Commerce Agent 實驗參考程式",
+          "paragraphs": [
+            "WooCommerce 團隊把 Anthropic 的商務代理範例接到 WooCommerce，購物端可搜尋與比較商品、建立購物車後回到商店原生結帳；商家端可查詢銷售、庫存與問題訂單，任何價格、補貨、文案或促銷修改都必須先由人員核准。官方明確標示這是實驗性參考程式，不是受正式維護的擴充功能，也不會自行下單或收款。",
+            "台灣開發團隊若要試作，應使用 staging，並自行補上身分驗證、稽核紀錄與復原機制。原始範例沒有驗證、沒有持久變更紀錄、沒有真正的 undo，商家服務還持有可完整寫入的 REST 金鑰；訂單與商品掃描也有數量上限，因此不可直接暴露在公開網路或套用到高流量正式商店。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-09-16",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/09/16/wc-claude-commerce-agent/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
