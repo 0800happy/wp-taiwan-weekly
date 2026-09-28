@@ -1,0 +1,102 @@
+{
+  "slug": "2026-09-28",
+  "number": 3,
+  "date": "2026-09-28",
+  "demo": false,
+  "summary": "本期查核 2026 年 9 月 22 日至 28 日的公開資訊，重點包括 WordPress 7.1.2 的重大安全修補、Core 團隊公開 Trac MCP 服務與版本發布工具，以及 WooCommerce 11.1.2 與 11.2 購物車數量驗證介面。已檢查 WordPress 台灣社群、WP 開發日常、鵠崙設計與金城事務所；前述來源在本期區間內沒有可由單篇原文核對精確日期的新文章，因此本期不以舊文充數，台灣來源占比不足的情況在此如實說明。",
+  "sections": [
+    {
+      "id": "security",
+      "title": "資安",
+      "items": [
+        {
+          "title": "WordPress 7.1.2 修補重大路徑穿越漏洞，舊分支同步回補",
+          "paragraphs": [
+            "WordPress 7.1.2 於 9 月 22 日發布，修補 CVE-2026-87902／GHSA-7hp8-65ch-5whp。未登入的攻擊者在伺服器環境與使用中佈景主題同時符合特定條件時，可讓頁面範本解析載入佈景主題目錄外、可讀取的本機 PHP 檔案，最嚴重可能導致遠端程式碼執行。官方把問題列為重大等級，並建議立即更新。",
+            "台灣站長應優先升級到 7.1.2，更新前備份檔案與資料庫，之後檢查前台範本、快取及錯誤日誌。安全修補已回補到 7.0.6、6.9.9 等舊分支，最舊至 4.7.37；4.6 以前不再取得修補，而且官方仍只積極支援最新版，不宜把舊分支回補視為長期停留舊版的方案。"
+          ],
+          "source_name": "WordPress News",
+          "source_date": "2026-09-22",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://wordpress.org/news/2026/09/wordpress-7-1-2-release/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highlights",
+      "title": "本週熱點",
+      "items": [
+        {
+          "title": "WordPress 公開 Trac MCP 服務，讓 AI 助理直接查票與變更紀錄",
+          "paragraphs": [
+            "Core 團隊於 9 月 24 日公開 WordPress Trac 的 Model Context Protocol 服務，可讓支援 MCP 的 AI 客戶端讀取票證、變更集與時間軸。服務免費且不需 API 金鑰，除 Core Trac 外也支援 Meta、Themes、Plugins、bbPress、BuddyPress、GlotPress 與 GSoC；提供 searchTickets、getTicket、getChangeset、getTimeline 與 getTracInfo 等工具。",
+            "台灣外掛與佈景主題開發者可用它整理上游票證脈絡、追蹤變更集或查找尚未處理的相容性問題，但 AI 摘要仍應回到 Trac 原文與程式差異核對。服務可讀公開資料，不代表回覆一定完整或正確，也不應把內部客戶資料、未公開漏洞或憑證放進查詢。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-09-24",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/09/24/wordpress-trac-mcp-server/"
+            }
+          ]
+        },
+        {
+          "title": "Core 團隊公開六項版本發布工具，降低跨分支人工操作風險",
+          "paragraphs": [
+            "Core 團隊於 9 月 23 日公開 core-release-utils 儲存庫，收錄六項命令列工具，用於草擬與檢查 HelpHub 版本頁、產生 SVN 標籤指令、確認標籤抵達 GitHub 鏡像、檢查 SVN 合併紀錄、套用 GitHub PR 差異，以及產生貢獻者連結。官方指出，一次次要版本或安全修補可能涉及二十多個分支，既有流程包含不少容易出錯的人工步驟。",
+            "這對參與 WordPress Core 或維護多版本產品的台灣團隊有參考價值：可把可重複檢查移進發布流程，但這些工具會輸出待執行指令，並不取代人工審查。導入前應先在測試儲存庫驗證權限、分支與 SVN 操作，避免把 Core 的流程假設直接套到自家產品。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-09-23",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/09/23/new-public-repo-core-release-tools/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "commerce",
+      "title": "WooCommerce／電商",
+      "items": [
+        {
+          "title": "WooCommerce 11.1.2 修正安全驗證與商品變化圖片遞迴問題",
+          "paragraphs": [
+            "WooCommerce 11.1.2 於 9 月 22 日發布，官方標示為安全更新且不需資料庫升級。此版本加強以電子郵件提交商品評論時的驗證，並修正佈景主題在範本中呼叫 get_available_variations 時，商品變化圖片庫可能陷入無限遞迴的退化問題；官方文章沒有列出 CVE 編號。",
+            "使用 WooCommerce 11.1 的台灣商店應先在測試站升級，重點驗證評論提交流程、含多規格商品的圖片切換，以及客製佈景主題是否直接呼叫變化資料。確認 PHP 錯誤日誌、商品頁和結帳流程正常後再更新正式站；沒有資料庫升級不代表可以省略備份與回歸測試。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-09-22",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/09/22/woocommerce-11-1-2/"
+            }
+          ]
+        },
+        {
+          "title": "WooCommerce 11.2 新增 Store API 購物車數量驗證篩選器",
+          "paragraphs": [
+            "WooCommerce 11.2 將加入 woocommerce_store_api_cart_item_quantity_validation，補足 Cart 與 Checkout 區塊透過 Store API 更新商品數量時，過去沒有對應舊版 woocommerce_update_cart_validation 的缺口。新篩選器在核心最小值、最大值與倍數檢查後執行；要拒絕數量必須回傳 WP_Error，回傳 false 或使用 wc_add_notice() 都不會生效。",
+            "台灣電商外掛若限制每筆訂單購買數量、活動名額或庫存規則，應搜尋是否只掛在 woocommerce_update_cart_validation。短代碼購物車仍需保留舊掛鉤，區塊購物車則另加新篩選器並實測錯誤訊息；首次加入購物車不會觸發它，該情境要使用 woocommerce_store_api_validate_add_to_cart。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-09-24",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/09/24/new-cart-validation-filter/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
