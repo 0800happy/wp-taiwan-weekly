@@ -1,0 +1,81 @@
+{
+  "slug": "2026-10-05",
+  "number": 4,
+  "date": "2026-10-05",
+  "demo": false,
+  "summary": "本期查核 2026 年 9 月 29 日至 10 月 5 日的公開資訊，重點包括 Gutenberg 24.1 的設計工具擴充、Presence API 0.14.0 的多人協作與隱私更新、WordPress Core 維護團隊權限整理，以及 WooCommerce 11.6 將提高最低 PHP 版本。已檢查 WordPress 台灣社群、WP 開發日常、鵠崙設計與金城事務所；其中金城事務所一篇標示 2026 年 10 月更新的文章，原始中繼資料顯示為舊文修改而非本週新發表，其餘來源也沒有落在本期區間且可核對精確日期的新文，因此本期不以舊文充數，台灣來源占比不足的情況在此如實說明。",
+  "sections": [
+    {
+      "id": "highlights",
+      "title": "本週熱點",
+      "items": [
+        {
+          "title": "Gutenberg 24.1 擴大區塊設計工具與文字陰影支援",
+          "paragraphs": [
+            "Gutenberg 24.1 於 9 月 30 日發布，約有 140 個拉取請求集中改善設計工具的一致性。背景圖片、尺寸、漸層、陰影、邊框、連結與按鈕顏色、字型及文字欄等控制，擴展到更多核心區塊；文字陰影也正式支援 theme.json，並可套用到段落與標題。Cover 與 Media & Text 區塊則在檢查器側欄加入媒體選擇介面。",
+            "台灣佈景主題與區塊外掛開發者可在測試站檢查 theme.json、自訂控制項與既有區塊樣式是否仍正常，尤其要留意新增控制項會不會與外掛自己的側欄欄位重複。一般站長不需為了新功能直接把 Gutenberg 測試版裝到正式站，可先在 staging 驗證編輯器、響應式樣式與前台輸出。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-09-30",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/09/30/whats-new-in-gutenberg-24-1-30-september/"
+            }
+          ]
+        },
+        {
+          "title": "Presence API 0.14.0 改善多人協作、隱私與多站網路效能",
+          "paragraphs": [
+            "Presence API 功能外掛更新至 0.14.0，需求為 WordPress 7.0 與 PHP 7.4。新版把文章鎖定資料移至 presence 資料表，避免更新鎖定時讓持久物件快取中的文章查詢失效；多個分頁改由單一分頁輪詢，閒置畫面降低頻率。記錄功能預設開啟，可在單站或多站網路停用，並提供隱私權說明、資料匯出與清除功能。",
+            "多人編輯的台灣媒體或企業站若測試這項功能，應先評估 presence 紀錄的隱私政策、角色權限與 Heartbeat 負載。AI 代理透過 REST 或 MCP 儲存內容時可被標示為 Agent，但這仍是功能外掛測試；正式站不應把它視為已納入 WordPress Core 的穩定功能，導入前要先備份並在 staging 驗證多站網路與物件快取。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-10-02",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/10/02/presence-api-whats-new/"
+            }
+          ]
+        },
+        {
+          "title": "WordPress Core 整理 Trac 維護者與 GitHub 分流權限",
+          "paragraphs": [
+            "Core 團隊於 10 月 2 日更新元件維護者與 Bug Gardener 名單，移除長期未參與、已轉移領域或尚未連結 GitHub 與 WordPress.org 帳號的人員；同時在 wordpress-develop 儲存庫新增及調整 Gutenberg、Core Component Maintainers、Core Bug Gardeners 等 GitHub 團隊，賦予 triage 層級權限以協助標籤、指派與請求程式碼審查。",
+            "這項調整主要影響參與上游 Core 開發的台灣貢獻者，而不是一般網站的執行功能。曾擔任元件維護者或協助票證整理的人，應確認兩個帳號已連結並查看邀請，因為 GitHub 團隊邀請需在七天內接受；一般站長則不需要因此調整網站設定。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-10-02",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/10/02/core-trac-and-github-team-spring-cleaning-southern-hemisphere-edition/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "commerce",
+      "title": "WooCommerce／電商",
+      "items": [
+        {
+          "title": "WooCommerce 11.6 將最低 PHP 版本提高至 8.1",
+          "paragraphs": [
+            "WooCommerce 官方確認，預計 2027 年 2 月發布的 11.6 將要求 PHP 8.1 以上。使用 PHP 7.4 或 8.0 的商店仍可更新到 WooCommerce 11.5；11.3 會先顯示可關閉的後台提醒，但不會立即中止支援。官方說明 PHP 7.4 與 8.0 已結束上游安全支援，並建議在環境相容時使用 PHP 8.3 或更新版本。",
+            "台灣商店應現在盤點主機、佈景主題、金流、物流、電子發票、排程工作與客製程式的 PHP 相容性。升級時先建立完整備份並在 staging 測試結帳、付款、運費、稅金、訂單管理與 cron；PHP 8.1 只是 11.6 的最低門檻，不代表所有第三方外掛都已經相容，也不宜直接在正式站切換版本。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-09-29",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/09/29/php-8-1-requirement/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
