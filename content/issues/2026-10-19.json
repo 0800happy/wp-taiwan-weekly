@@ -1,0 +1,102 @@
+{
+  "slug": "2026-10-19",
+  "number": 6,
+  "date": "2026-10-19",
+  "demo": false,
+  "summary": "本期查核 2026 年 10 月 13 日至 19 日的公開資訊，收錄鵠崙設計的 GA4 實務指南，以及 Gutenberg 24.2、即時協作同步引擎、舊版 Gutenberg 分支測試修復與 Feature Notifications 進度。已檢查 WordPress 台灣社群、WP 開發日常、鵠崙設計、金城事務所，以及 WordPress 與 WooCommerce 官方來源；只有鵠崙設計的文章同時符合本期區間、具可核對的完整發布日期且內容相關。金城事務所候選文章僅標示月份，無法確認是否落在本期區間，因此未收錄；本期台灣來源占比不足的情況在此如實說明，不以舊文或日期不明內容充數。",
+  "sections": [
+    {
+      "id": "local",
+      "title": "在地工作室部落格",
+      "items": [
+        {
+          "title": "鵠崙設計整理 GA4 事件式資料模型與轉換追蹤",
+          "paragraphs": [
+            "台灣網頁設計公司鵠崙設計發布 GA4 入門指南，從 Universal Analytics 的工作階段模型，說明 GA4 改以事件記錄頁面瀏覽、點擊、影片播放、捲動與表單互動，並整理跨裝置辨識、報表與轉換設定等基本觀念。這是廠商教學觀點，不是 Google 或 WordPress 官方規範。",
+            "台灣站長可把文章當作盤點 WordPress 網站量測設定的起點：先確認 GA4 資源與網站串接正常，再逐項驗證表單送出、購物流程或其他重要互動是否真的送出事件。涉及 Cookie 同意、電商資料或自訂事件時，仍應依網站實際外掛與隱私需求另行測試。"
+          ],
+          "source_name": "鵠崙設計",
+          "source_date": "2026-10-15",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://www.design-hu.com/web-news/google-analytics-4-beginner-guide.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highlights",
+      "title": "本週熱點",
+      "items": [
+        {
+          "title": "Gutenberg 24.2 改善註解、導覽搜尋與圖庫操作",
+          "paragraphs": [
+            "Gutenberg 24.2 於 10 月 14 日發布。編輯註解移到內容畫布旁的保留區域，使用者可同時看到註解與設定側欄；導覽選單新增單一搜尋入口，圖庫可重新排序並一次套用雙色調。這版也延續設計工具一致性工作，合併約 80 個相關變更，另含超過 60 項錯誤修正與無障礙、效能改進。",
+            "開發自訂區塊或以 Gutenberg 外掛搶先測試新編輯器功能的台灣團隊，應先在測試站確認區塊樣式、導覽編輯、圖庫與協作註解。React 19 已在這版預設啟用，含自製 React 元件或依賴舊生命週期行為的外掛尤其需要回歸測試；一般正式站不必把外掛版的新功能直接視為已納入 WordPress Core。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-10-14",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/10/14/whats-new-in-gutenberg-24-2-14-october/"
+            }
+          ]
+        },
+        {
+          "title": "WordPress 公開三種即時協作同步引擎供測試",
+          "paragraphs": [
+            "WordPress 即時協作團隊公開 yjs-server、DE-RTC 與 intent-log 三種實驗性同步引擎。yjs-server 著重快速更新與即時游標；DE-RTC 以定期儲存及伺服器合併為核心，較貼近既有 WordPress 且對小型主機較友善；intent-log 則傳送可讀的編輯意圖，讓伺服器理解移動、分割等操作。三者目前都在實驗外掛中，尚未定案。",
+            "這對台灣主機商與內容團隊的實際影響在於基礎設施需求不同：輪詢可普遍運作，但會占用 PHP workers；Server-Sent Events 或 WebSocket 需要長連線或獨立程序。要參與測試應使用非正式站，並觀察多人同編、衝突合併、長文傳輸量與主機資源，不宜把實驗外掛直接部署到正式內容流程。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-10-14",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/10/14/real-time-collaboration-a-guide-to-sync-engines/"
+            }
+          ]
+        },
+        {
+          "title": "Feature Notifications 0.3.0 收斂為 16 項待辦，恢復每週諮詢時段",
+          "paragraphs": [
+            "Feature Notifications 專案的 0.3.0 追蹤清單更新為 16 項必要工作，團隊表示近期開發會集中完成這些項目；專案另有 30 多個待處理的 Dependabot 安全性拉取請求，需要貢獻者協助審查。每週 Office Hours 將自 10 月 22 日 11:00 UTC 起恢復，在 WordPress Slack 的 feature-notifications 頻道舉行。",
+            "這仍是功能專案進度，不代表 0.3.0 已發布或已進入 WordPress Core。台灣外掛開發者若正在設計後台通知，可追蹤資料模型與權限方向，並於公開諮詢時段提問；正式產品暫時仍應維持自己的相容層，不要依賴尚未完成的 API。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-10-16",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/10/16/wp-feature-notifications-weekly-update-2026-10-16/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "title": "資安",
+      "items": [
+        {
+          "title": "舊版 Gutenberg 分支的自動測試正在全面修復",
+          "paragraphs": [
+            "WordPress Core 團隊指出，對應既有 WordPress 版本的 Gutenberg wp/x.y 分支，有些 GitHub Actions 測試會固定失敗或根本未執行，影響安全回補的驗證可靠度。Operation Tall Stack 為 20 多個分支準備約 500 個小型拉取請求，內容包括固定相符的 PHP 與 Node.js 環境、修復 wp-env、Composer、PHPUnit、強化工作流程與穩定測試；草稿中的 AI 產生變更仍被明確視為尚未經人工驗證。",
+            "這篇不是新漏洞公告，也沒有 CVE 或可供站長安裝的修補版本。對台灣維運團隊的重點是：WordPress 4.7 以上舊分支的安全更新屬回補性質，只有最新版本受到積極支援；正式站仍應規劃升到現行版本。開發者若協助審查，需逐項檢查各版本分支並由具權限的 WordPress GitHub 成員核准後才能合併。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-10-16",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/10/16/call-for-code-review-help-repairing-gutenberg-github-actions-workflows-for-wp-x-y-branches/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
