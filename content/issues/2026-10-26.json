@@ -1,0 +1,136 @@
+{
+  "slug": "2026-10-26",
+  "number": 7,
+  "date": "2026-10-26",
+  "demo": false,
+  "summary": "本期查核 2026 年 10 月 20 日至 26 日的公開資訊，收錄台灣工作室整理的 PHP 重大遠端程式碼執行漏洞，以及 WordPress 7.2 Beta 1、Contributor Toolkit 2.0、Feature Notifications 與 WooCommerce 11.3 開發更新。已檢查 WordPress 台灣社群、WP 開發日常、鵠崙設計、金城事務所，以及 WordPress、WooCommerce 與 PHP 官方來源；本期只有鵠崙設計的文章同時符合日期、內容與可核對性門檻。台灣來源占比不足一半的情況在此如實說明，不以舊文、日期不明文章或未公開社群內容補數。",
+  "sections": [
+    {
+      "id": "security",
+      "title": "資安",
+      "items": [
+        {
+          "title": "PHP 修補兩項重大未驗證 RCE，WordPress 主機應更新執行環境",
+          "paragraphs": [
+            "台灣網頁設計公司鵠崙設計於 10 月 22 日從網站維運角度整理 CVE-2026-109618 與 CVE-2026-109619；PHP 官方公告也確認兩項問題可能讓未驗證攻擊者遠端執行程式碼，並發布 PHP 8.5.12、8.4.27、8.3.36 與 8.2.35 修補。官方表示沒有完整的替代緩解方式，建議立即更新。",
+            "WordPress 核心或外掛更新不會連帶升級伺服器上的 PHP。台灣站長應先在「工具＞網站健康度＞資訊＞伺服器」或主機控制台確認版本，備份並於測試環境驗證後，請主機商升級到對應修補版並重新啟動 PHP 工作程序；仍使用 PHP 8.1 或更舊分支的網站，應一併規劃遷移到受支援版本。"
+          ],
+          "source_name": "鵠崙設計／PHP 官方",
+          "source_date": "2026-10-22",
+          "links": [
+            {
+              "label": "閱讀台灣工作室原文",
+              "url": "https://www.design-hu.com/web-news/php-rce-vulnerability-cve-2026-109618.html"
+            },
+            {
+              "label": "核對 PHP 官方安全公告",
+              "url": "https://www.php.net/archive/2026.php"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highlights",
+      "title": "本週熱點",
+      "items": [
+        {
+          "title": "WordPress 7.2 Beta 1 開放測試，正式版預定 12 月 8 日",
+          "paragraphs": [
+            "WordPress 7.2 Beta 1 於 10 月 20 日釋出，僅供測試，不應用於正式或關鍵網站。這一輪包括圖庫區塊的響應式控制、可篩選已自訂的全站樣式、文字陰影、導覽側欄調整，以及註解表情符號與畫布邊距等編輯體驗更新；正式版目前預定於 2026 年 12 月 8 日發布。",
+            "台灣佈景主題與外掛開發者可用 WordPress Beta Tester、官方 ZIP、WP-CLI 或 Playground 建立隔離測試站，優先回歸區塊樣式、導覽、圖庫與後台編輯流程。正式站應繼續使用穩定版，並在升級前確認自製功能與商用外掛的相容性。"
+          ],
+          "source_name": "WordPress.org",
+          "source_date": "2026-10-20",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://wordpress.org/news/2026/10/wordpress-7-2-beta-1-is-ready-for-download-and-testing/"
+            }
+          ]
+        },
+        {
+          "title": "WordPress Contributor Toolkit 2.0 改版並加入十種語言",
+          "paragraphs": [
+            "WordPress Contributor Toolkit 2.0 於 10 月 23 日公布，介面改採 WordPress Design System，新增設定頁、深色主題與十種語言翻譯。工具讓貢獻者建立 Core 或 Gutenberg 的開發環境，不必先自行安裝 Git、Node.js、npm 或 Docker。",
+            "想參與核心、Gutenberg 或翻譯貢獻的台灣開發者，可用新版降低環境建置門檻，並回報中文介面或工作流程問題。這是貢獻工具更新，不會改變既有 WordPress 網站的前台或後台行為，站長無須因此調整正式站。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-10-23",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/10/23/wordpress-contributor-toolkit-2-0-a-redesigned-app-in-your-language/"
+            }
+          ]
+        },
+        {
+          "title": "Feature Notifications 一週合併 24 個變更，REST 介面仍在開發",
+          "paragraphs": [
+            "Feature Notifications 專案在 10 月 23 日的週報指出，一週內合併 24 個拉取請求，其中 23 個屬 Dependabot 更新；另有 16 個新貢獻者拉取請求。團隊正在處理通知的 REST GET、POST、DELETE 操作、第二版資料結構、使用者範圍儲存庫與 UTC 日期等功能。",
+            "這些是公開開發進度，不代表 API 已穩定或已進入 WordPress Core。台灣外掛開發者可追蹤權限、資料結構與通知管理方向，但正式產品目前不宜直接依賴尚未完成的端點；若參與測試，應鎖定實驗版本並保留自己的相容層。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-10-23",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/10/23/wp-feature-notifications-weekly-update-2026-10-23/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "commerce",
+      "title": "WooCommerce／電商",
+      "items": [
+        {
+          "title": "WooCommerce 11.3 移除舊 MCP 端點，整合須改用 WordPress MCP Adapter",
+          "paragraphs": [
+            "WooCommerce 11.3 的 MCP 整合改以 WordPress MCP Adapter 外掛為入口，產品與訂單 abilities 仍由 WooCommerce 提供。舊的 /wp-json/woocommerce/mcp 端點已移除並回傳 HTTP 410；使用 WooCommerce REST API 金鑰連線的舊實作，必須改用 WordPress 應用程式密碼，過時的 abilities 與篩選器也同步移除。",
+            "台灣電商團隊若曾測試 AI 助理或自動化工具連接 WooCommerce，升級前應盤點是否仍呼叫舊端點，先在測試站安裝 MCP Adapter、改換驗證方式並重新做最小權限檢查。遷移完成後應撤銷不再使用的 WooCommerce REST API 金鑰，避免留下多餘憑證。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-10-21",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/10/21/woocommerce-11-3-mcp/"
+            }
+          ]
+        },
+        {
+          "title": "WooCommerce 11.3 加入實驗性的 Extensible Abilities API",
+          "paragraphs": [
+            "WooCommerce 11.3 加入實驗性 API，讓擴充套件替產品、訂單與訂單項目的 abilities 增加欄位、寫入操作、驗證器與查詢篩選條件。功能預設關閉，需在 WooCommerce 的進階功能設定中主動啟用；關閉時維持 11.2 的既有行為。",
+            "為台灣商店開發 ERP、物流、會員或客製訂單整合的團隊，可在非正式站評估此擴充點能否減少自建端點，但應把它視為實驗介面：鎖定版本、準備回退方案並避免讓正式訂單流程依賴尚可能變動的 API。一般商家若沒有開發需求，不必啟用。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-10-22",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/10/22/extensible-abilities/"
+            }
+          ]
+        },
+        {
+          "title": "WooCommerce 將 Purple 佈景主題開發移入主儲存庫",
+          "paragraphs": [
+            "WooCommerce 團隊於 10 月 20 日把 Purple 佈景主題的開發位置，從獨立的 woo-themes 儲存庫移到 WooCommerce monorepo 的 themes/purple/。Purple 仍是獨立套件並維持自己的發布節奏，官方明確表示此變更不影響 WooCommerce 外掛，也不要求已安裝網站採取動作。",
+            "台灣站長可把這則視為開發維護位置調整，既有商店不用重新安裝或變更設定。曾引用舊儲存庫、提交問題或參與 Purple 開發的團隊，則應更新文件、書籤與自動化腳本所使用的路徑。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-10-20",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/10/20/purple-monorepo/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
