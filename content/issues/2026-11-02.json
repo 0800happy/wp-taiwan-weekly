@@ -1,0 +1,121 @@
+{
+  "slug": "2026-11-02",
+  "number": 8,
+  "date": "2026-11-02",
+  "demo": false,
+  "summary": "本期查核 2026 年 10 月 27 日至 11 月 2 日的公開資訊，收錄 WordPress 7.1.4 安全更新、WordPress 7.2 Beta 2、WordPress 的代理式 AI 與 MCP 方向、Presence API、Feature Notifications，以及 WooCommerce 11.3 購物車擴充變更。已檢查 WordPress 台灣社群、WP 開發日常、鵠崙設計、金城事務所，以及 WordPress 與 WooCommerce 官方來源；四個台灣入口均未找到同時具完整日期、落在本期區間且與 WordPress 直接相關的新文章，因此本期台灣來源占比不足一半，不以舊文、日期不明文章或未公開社群內容補數。",
+  "sections": [
+    {
+      "id": "security",
+      "title": "資安",
+      "items": [
+        {
+          "title": "WordPress 7.1.4 修補升級期間 RCE 與多項儲存型 XSS",
+          "paragraphs": [
+            "WordPress 7.1.4 於 10 月 28 日發布，官方列出多項安全修補，包括升級流程在特定期間可能遭遠端執行程式碼、特製區塊標記與隱私資料刪除請求造成的儲存型 XSS、Interactivity API 的多項儲存型 XSS 與阻斷服務問題，以及自訂器、分類區塊、播放清單、圖片、留言分頁和特殊登入名稱等風險。官方原文未公布 CVE 編號，不應自行補寫。",
+            "台灣站長應先完成檔案與資料庫備份，再將正式站更新至 7.1.4，並檢查登入、文章與區塊編輯、自訂器、留言、隱私工具及互動式前台功能。若網站依賴自動背景更新，仍應登入後台確認實際版本與更新結果；使用舊分支者可由台灣官方版本彙整頁核對安全回補版，但長期仍應規劃升級到受積極支援的最新版本。"
+          ],
+          "source_name": "WordPress News／WordPress.org Taiwan",
+          "source_date": "2026-10-28",
+          "links": [
+            {
+              "label": "閱讀 WordPress 官方公告",
+              "url": "https://wordpress.org/news/2026/10/wordpress-7-1-4/"
+            },
+            {
+              "label": "核對台灣正體中文版本彙整",
+              "url": "https://tw.wordpress.org/download/releases/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "highlights",
+      "title": "本週熱點",
+      "items": [
+        {
+          "title": "WordPress 7.2 Beta 2 延續 Abilities API 與後台介面調整",
+          "paragraphs": [
+            "WordPress 7.2 Beta 2 於 10 月 27 日開放測試，僅供開發與測試環境使用。相較 Beta 1，這一輪持續改善 Abilities API 的內容查詢、權限需求、結構與權限處理，並加入 DataViews、DataForm 的伺服器端註冊能力；REST API 彈性、後台資產載入與現代 SVG 圖示轉換也有進展。正式版目前預定 12 月 8 日發布。",
+            "台灣外掛與佈景主題團隊可在隔離環境使用 Beta Tester、ZIP、WP-CLI 或 Playground，回歸自訂後台介面、REST 整合、圖示、DataViews 與 DataForm。這仍是測試版，正式或關鍵網站不應安裝；若 Beta 1 已測過，也應再驗證本輪修正後的權限與介面行為。"
+          ],
+          "source_name": "WordPress.org",
+          "source_date": "2026-10-27",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://wordpress.org/news/2026/10/wordpress-7-2-beta-2/"
+            }
+          ]
+        },
+        {
+          "title": "WordPress 提出以 MCP、Abilities 與 OAuth 銜接使用者自選 AI 代理",
+          "paragraphs": [
+            "WordPress AI 團隊提出面向代理式網路的工作方向：先在 7.2 週期強化 MCP Adapter 與 Abilities 基礎、規劃 OAuth 驗證及端到端授權體驗，再以 WordPress 7.3 為整合目標。文章強調這不是把單一 AI 放進 WordPress，而是讓使用者可授權自己選擇的代理連接網站；是否進入核心仍取決於技術成熟度、安全審查與正常的 Core 合併流程。",
+            "對台灣站長而言，這目前是開發方向而非可直接啟用的正式功能，不應因提案就把應用程式密碼交給第三方代理。開發者可關注最小權限、憑證撤銷、操作記錄與 Abilities 的能力邊界；企業或電商站若參與實驗，應只在測試環境使用專用帳號並限制可操作範圍。"
+          ],
+          "source_name": "Make WordPress AI",
+          "source_date": "2026-10-28",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/ai/2026/10/28/wordpress-for-the-agentic-web/"
+            }
+          ]
+        },
+        {
+          "title": "Presence API 0.20.0 完成推送傳輸所需狀態介面，外部安全審查仍待完成",
+          "paragraphs": [
+            "11 月 1 日發布的進度摘要指出，Presence API 0.19.0 加入 keepalive 篩選器與 roomChanged 動作，0.20.0 再加入 wp_presence_admin_state()，並在文章標題或狀態變更時觸發 wp_presence_room_changed，讓推送式傳輸可更完整地同步編輯現場。專案的鍵盤、無 JavaScript、HTML 驗證與跨瀏覽器等條件已合併，但外部安全審查仍是進入 Core 前的必要門檻。",
+            "台灣多作者網站與協作工具開發者可在測試站評估新版 API、文章鎖定與主機負載，不宜把功能外掛視為已進入核心。使用共享主機或大量 PHP workers 的站點，尤其要觀察 Heartbeat、輪詢與推送傳輸的資源差異；在外部安全審查完成前，不應部署到承載敏感內容的正式流程。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-11-01",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/11/01/presence-api-meeting-summary-october-26-2026/"
+            }
+          ]
+        },
+        {
+          "title": "Feature Notifications 儲存庫改為依使用者隔離",
+          "paragraphs": [
+            "11 月 1 日發布的 Feature Notifications 週報顯示，Notification_Repository 已改寫為所有查詢都帶入 user_id，並新增依使用者查找與計數的方法，可按狀態、頻道、情境、時間、到期與分頁篩選。這項變更讓使用者只能透過儲存庫取得自己的通知，也為 REST API 列表與 X-WP-Total 總數回應準備資料層。",
+            "這是功能專案的新進展，並不代表 API 已穩定或已合併進 WordPress Core。台灣外掛開發者若正在評估後台通知整合，可開始檢查多使用者隔離、權限與分頁需求，但正式產品仍應維持自己的相容層與資料遷移方案，不宜依賴實驗介面的現況。"
+          ],
+          "source_name": "Make WordPress Core",
+          "source_date": "2026-11-01",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://make.wordpress.org/core/2026/11/01/wp-feature-notifications-weekly-update-2026-10-30/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "commerce",
+      "title": "WooCommerce／電商",
+      "items": [
+        {
+          "title": "WooCommerce 11.3 新增購物車父子項目關係，組合商品外掛需主動宣告",
+          "paragraphs": [
+            "WooCommerce 11.3 新增 woocommerce_store_api_cart_item_parent_item_key 篩選器，以及 Store API 唯讀欄位 parent_item_key。擴充套件可用它宣告由另一個購物車項目帶入的子項目，讓 Product Button 的「購物車中有 N 件」不再把套裝、組合、Mix and Match、強制搭售或經常一起購買的子商品誤算為使用者單獨加入。",
+            "開發台灣商店套裝、加購、贈品或客製組合商品外掛的團隊，應在 WooCommerce 11.3 測試站檢查子商品按鈕計數，保存父項目的 cart item key 並透過新篩選器回傳。未採用時現有流程不會直接中斷，但計數會維持舊行為；回傳其他外掛的項目時也要保留原值，避免覆蓋別人宣告的父子關係。"
+          ],
+          "source_name": "WooCommerce Developer Blog",
+          "source_date": "2026-10-27",
+          "links": [
+            {
+              "label": "閱讀單篇原文",
+              "url": "https://developer.woocommerce.com/2026/10/27/cart-item-children/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
